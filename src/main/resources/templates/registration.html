@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <p>This page is for registering.</p>
+
+  <form th:action="@{/registration/save}" method="post" th:object="${user}">
+    <input type="hidden" th:field="*{Id}" />
+    <div>
+      <label>Email</label>
+      <input type="email" th:field="*{email}" required minlength="2" maxlength="45"/>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="number" th:field="*{password}"/>
+    </div>
+    <div>
+      <label>Username</label>
+      <input type="text" th:field="*{username}"/>
+    </div>
+    <div>
+      <button type="submit">Save</button>
+      <button type="submit" onclick="cancelForm()">Cancel</button>
+    </div>
+    <script type="text/javascript">
+      function cancelForm() {
+        window.location = "[[@{/}]]";
+      }
+    </script>
+  </form>
+
+</body>
+</html>
